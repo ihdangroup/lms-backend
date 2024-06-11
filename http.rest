@@ -1,0 +1,9 @@
+GET  http://127.0.0.1:8000/api/users
+content-type: application/json
+
+{
+   "course_id": 6,
+   "name": "Pengenalan CSS",
+   "video": "html.mp4",
+   "youtube_url": "kfnskfn"
+}
