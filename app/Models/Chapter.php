@@ -8,7 +8,7 @@ use App\Models\Student;
 
 class Chapter extends Model
 {
-    // protected $table ='class';
+    protected $primaryKey ='video_id';
     // public function student() {
     //     return $this->hasMany(Student::class, 'class_id', 'id');
     // }

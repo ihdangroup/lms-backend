@@ -34,6 +34,24 @@ class CourseController extends Controller
 
         return response()->json(['message'=> 'success added new couse', 'new_course'=> $new_course], 200);
     }
+    public function update(Request $request, $id)
+    {
+        // $request->validate([
+        //     'nama_field1' => 'required', // Ganti dengan validasi yang diperlukan
+        //     'nama_field2' => 'required',
+        // ]);
+        $course =  Course::findOrFail($id);
+        $total_chapter = intval($request->total_chapter);
+        $tag = intval($request->tag);
+        $course->name = $request->name;
+        $course->description = $request->description;
+        $course->image = $request->image;
+        $course->total_chapter = $total_chapter;
+        $course->tag = $tag;
+        $course->save();
+
+        return response()->json(["message" => "data berhasil diperbarui"], 200);
+    }
     public function hapus($id)
     {
         $kursus = Course::findorFail($id);
