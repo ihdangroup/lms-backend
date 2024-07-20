@@ -7,6 +7,10 @@ use App\Models\Chapter;
 
 class ChapterController extends Controller
 {
+    public function get_all() {
+        $data = Chapter::get();
+        return response()-> json(['message'=> 'success get all chapter', 'data' => $data]);
+    }
     public function show($id) {
         $chapter = Chapter::where('video_id', intval($id))->get();
         return response()->json(['message'=> 'success get chapter', 'chapter'=> $chapter], 200);

@@ -12,6 +12,9 @@ class UserCourseController extends Controller
     public function index($userId, $courseId) {
        return User_Enroll_Course::where('user_id', $userId)->where('course_id', $courseId)->get();
     }
+    public function get_all() {
+        return User_Enroll_Course::where('completed_video', null)->get();
+     }
 
     public function students($id) {
         $students_course = User_Enroll_Course::with('student')->where('course_id', $id)
